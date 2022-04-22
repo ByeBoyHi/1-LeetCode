@@ -17,7 +17,6 @@ public class RotateFunc {
      */
 
     public int maxRotateFunction(int[] nums) {
-        ///11231354
         int n = nums.length;
         if (n == 1) return 0;
         int sum = Arrays.stream(nums).sum();
