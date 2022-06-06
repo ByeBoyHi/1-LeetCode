@@ -57,7 +57,7 @@ public class SubArrayProductLessK {
             int l = 0;
             int r = j+1;  // j+1指的是prefixLog的第j个
             int idx = j+1;
-            double val = prefixLog[j+1]-logk+Math.pow(10,-10);
+            double val = prefixLog[j+1]-logk+Math.pow(10,-10);  // 加了一个小的偏差值
             while (l<=r){
                 int mid = l + ((r-l)>>1);
                 if (prefixLog[mid]>val){
