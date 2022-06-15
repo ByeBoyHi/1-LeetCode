@@ -1,6 +1,5 @@
 package 聊天小程序.th2_GUI;
 
-import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -103,8 +101,7 @@ public class ServerChatMain extends JFrame implements ActionListener, KeyListene
         /* ****************TCP 服务端 end  **************** */
     }
 
-    @SneakyThrows
-    public void send(){
+    public void send() throws IOException {
         // 1. 获取文本框中发送的内容
         String text = jtf.getText();
         // 2. 拼接需要发送的数据内容
@@ -121,7 +118,11 @@ public class ServerChatMain extends JFrame implements ActionListener, KeyListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        send();
+        try {
+            send();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     // 按下：我们是实现回车发送信息，所以实现按下
@@ -130,7 +131,11 @@ public class ServerChatMain extends JFrame implements ActionListener, KeyListene
         // 按回车键的时候触发事件
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             // 发送数据到套接字里面
-            send();
+            try {
+                send();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 

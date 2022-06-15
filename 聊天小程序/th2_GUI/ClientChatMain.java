@@ -1,7 +1,5 @@
 package 聊天小程序.th2_GUI;
 
-import lombok.SneakyThrows;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -102,8 +100,7 @@ public class ClientChatMain extends JFrame implements ActionListener, KeyListene
 
     }
 
-    @SneakyThrows
-    public void send(){
+    public void send() throws IOException {
         // 1. 获取文本框中需要发送的内容
         String text = jtf.getText();
         // 2. 拼接内容
@@ -121,7 +118,11 @@ public class ClientChatMain extends JFrame implements ActionListener, KeyListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        send();
+        try {
+            send();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
@@ -132,7 +133,11 @@ public class ClientChatMain extends JFrame implements ActionListener, KeyListene
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            send();
+            try {
+                send();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 
