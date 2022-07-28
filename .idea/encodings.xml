@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
-    <file url="PROJECT" charset="GBK" />
+    <file url="file://$PROJECT_DIR$" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Easy/ArrayIdxTransfer/Solution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/周赛/第266场周赛/统计字符串中的元音子字符串/Solution.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
